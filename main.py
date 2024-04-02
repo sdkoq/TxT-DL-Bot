@@ -329,17 +329,17 @@ async def account_login(bot: Client, m: Message):
                     try:
                         ka=await helper.download(url,name)
                         await prog.delete (True)
-                        time.sleep(1)
+                        time.sleep(10)
                         #await helper.send_video(bot,m,cc,ka,cc1,prog,count,name)
                         reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\n")
-                        time.sleep(1)
+                        time.sleep(10)
                         start_time = time.time()
                         await m.reply_document(ka,caption=cc1,progress=progress_bar,progress_args=(reply,start_time))
                         count+=1
                         await reply.delete (True)
-                        time.sleep(1)
+                        time.sleep(10)
                         os.remove(ka)
-                        time.sleep(3)
+                        time.sleep(15)
                     except FloodWait as e:
                         await m.reply_text(str(e))
                         time.sleep(e.x)
@@ -348,17 +348,17 @@ async def account_login(bot: Client, m: Message):
                     try:
                         ka=await helper.aio(url,name)
                         await prog.delete (True)
-                        time.sleep(1)
+                        time.sleep(10)
                         reply = await m.reply_text(f"Uploading » {str(count).zfill(3)}-{name}\n\n")
-                        time.sleep(1)
+                        time.sleep(10)
                         start_time = time.time()
                         await m.reply_document(ka, caption=f'**File No. »** {str(count).zfill(3)}\n**File Name »** {name1} {pdf}\n')
                         count+=1
-                        # time.sleep(1)
+                        # time.sleep(10)
                         await reply.delete (True)
-                        time.sleep(1)
+                        time.sleep(10)
                         os.remove(ka)
-                        time.sleep(3)
+                        time.sleep(15)
                     except FloodWait as e:
                         await m.reply_text(str(e))
                         time.sleep(e.x)
@@ -368,7 +368,7 @@ async def account_login(bot: Client, m: Message):
                     filename = res_file
                     await helper.send_vid(bot, m,cc,filename,thumb,name,prog)
                     count+=1
-                    time.sleep(1)
+                    time.sleep(10)
 
             except Exception as e:
                 await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - `{url}`")
@@ -528,7 +528,7 @@ async def account_login(bot: Client, m: Message):
 
                 os.remove(f"{filename}.jpg")
                 await reply.delete (True)
-                time.sleep(1)
+                time.sleep(10)
             except Exception as e:
                 await m.reply_text(f"**downloading failed ❌**\n{str(e)}\n**Name** - {name}\n**Link** - `{url}` & `{url1}`")
                 continue 
